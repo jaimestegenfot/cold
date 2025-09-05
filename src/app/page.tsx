@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { FaFacebookF, FaInstagram, FaWhatsapp, FaChevronDown, FaBars, FaTimes, FaDownload } from 'react-icons/fa';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FeaturesSection from '../components/FeaturesSection';
@@ -14,7 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="relative z-10 bg-white/95 backdrop-blur-sm shadow-lg">
+      <header className="relative z-[10000] bg-white/95 backdrop-blur-sm shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -34,18 +35,16 @@ export default function Home() {
               <div className="relative group">
                 <a href="#" className="text-black font-semibold hover:text-blue-600 transition-colors flex items-center">
                   SERVICIOS
-                  <svg className="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
+                  <FaChevronDown className="w-3 h-3 ml-1" />
                 </a>
                 {/* Dropdown Menu */}
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-200">
-                  <div className="py-2">
-                    <a href="#" className="block px-4 py-2 text-black hover:bg-blue-50 hover:text-blue-600 transition-colors">AIRE ACONDICIONADO</a>
-                    <a href="#" className="block px-4 py-2 text-black hover:bg-blue-50 hover:text-blue-600 transition-colors">Refrigeración Comercial e Industrial</a>
-                    <a href="#" className="block px-4 py-2 text-black hover:bg-blue-50 hover:text-blue-600 transition-colors">Aire Acondicionado Automotriz</a>
-                    <a href="#" className="block px-4 py-2 text-black hover:bg-blue-50 hover:text-blue-600 transition-colors">REFERR</a>
-                    <a href="#" className="block px-4 py-2 text-black hover:bg-blue-50 hover:text-blue-600 transition-colors">Venta de Repuestos</a>
+                <div className="dropdown-menu absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-[10001] border-2 border-gray-100">
+                  <div className="py-3">
+                    <a href="#servicios/aire-acondicionado" className="dropdown-text block px-4 py-3 text-gray-900 hover:bg-blue-100 hover:text-blue-800 transition-all duration-200 text-base">AIRE ACONDICIONADO</a>
+                    <a href="#servicios/refrigeracion-industrial" className="dropdown-text block px-4 py-3 text-gray-900 hover:bg-blue-100 hover:text-blue-800 transition-all duration-200 text-base">Refrigeración Comercial e Industrial</a>
+                    <a href="#servicios/aire-automotriz" className="dropdown-text block px-4 py-3 text-gray-900 hover:bg-blue-100 hover:text-blue-800 transition-all duration-200 text-base">Aire Acondicionado Automotriz</a>
+                    <a href="#servicios/reefer" className="dropdown-text block px-4 py-3 text-gray-900 hover:bg-blue-100 hover:text-blue-800 transition-all duration-200 text-base">REFERR</a>
+                    <a href="#servicios/venta-repuestos" className="dropdown-text block px-4 py-3 text-gray-900 hover:bg-blue-100 hover:text-blue-800 transition-all duration-200 text-base">Venta de Repuestos</a>
                   </div>
                 </div>
               </div>
@@ -57,21 +56,22 @@ export default function Home() {
             <div className="flex items-center space-x-4">
               {/* Social Media Icons */}
               <div className="hidden lg:flex items-center space-x-3">
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">f</span>
-                </div>
-                <div className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center">
-                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001 12.017.001z" />
-                  </svg>
-                </div>
+                {/* Facebook */}
+                <a href="#" className="w-10 h-10 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-colors group">
+                  <FaFacebookF className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+                </a>
+                
+                {/* Instagram */}
+                <a href="#" className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 rounded-full flex items-center justify-center transition-all group">
+                  <FaInstagram className="w-5 h-5 text-white group-hover:scale-110 transition-transform" />
+                </a>
+                
+                
               </div>
 
               {/* Quote Button */}
-              <button className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold flex items-center space-x-2 transition-colors text-sm sm:text-base">
-                <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
-                </svg>
+              <button className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold flex items-center space-x-2 transition-all duration-200 hover:shadow-lg group">
+                <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
                 <span className="hidden sm:inline">COTIZAR</span>
               </button>
 
@@ -81,13 +81,9 @@ export default function Home() {
                 className="md:hidden p-2 text-black hover:text-blue-600 transition-colors"
               >
                 {isMobileMenuOpen ? (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+                  <FaTimes className="w-6 h-6" />
                 ) : (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>
+                  <FaBars className="w-6 h-6" />
                 )}
               </button>
             </div>
@@ -113,13 +109,9 @@ export default function Home() {
                 className="flex items-center justify-between w-full text-black font-semibold hover:text-blue-600 transition-colors py-2"
               >
                 SERVICIOS
-                <svg 
+                <FaChevronDown 
                   className={`w-4 h-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} 
-                  fill="currentColor" 
-                  viewBox="0 0 20 20"
-                >
-                  <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
+                />
               </button>
               
               {isServicesOpen && (
@@ -224,10 +216,8 @@ export default function Home() {
               con personal técnico calificado y atención personalizada en cada etapa del servicio.
             </p>
 
-            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base flex items-center space-x-2 mx-auto transition-colors">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
-              </svg>
+            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base flex items-center space-x-2 mx-auto transition-all duration-200 hover:shadow-lg group">
+              <FaDownload className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span>DESCARGAR BROCHURE</span>
             </button>
           </div>

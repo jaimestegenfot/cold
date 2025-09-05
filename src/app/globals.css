@@ -33,3 +33,28 @@ body {
 .scrollbar-hide::-webkit-scrollbar { 
   display: none;  /* Safari and Chrome */
 }
+
+/* Improve text rendering for dropdown */
+.dropdown-text {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-weight: 600;
+}
+
+/* Ensure dropdown stays visible and doesn't interfere */
+.dropdown-menu {
+  pointer-events: auto !important;
+  position: absolute !important;
+  z-index: 10001 !important;
+}
+
+.dropdown-menu a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Prevent any interference with dropdown */
+.group:hover .dropdown-menu {
+  pointer-events: auto !important;
+}
