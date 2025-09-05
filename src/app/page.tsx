@@ -2,7 +2,6 @@
 
 import React, { useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import { FaFacebookF, FaInstagram, FaWhatsapp, FaChevronDown, FaBars, FaTimes, FaDownload } from 'react-icons/fa';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -16,12 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <motion.header 
-        className="relative z-[10000] bg-white/95 backdrop-blur-sm shadow-lg"
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-      >
+      <header className="relative z-[10000] bg-white/95 backdrop-blur-sm shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -76,17 +70,10 @@ export default function Home() {
               </div>
 
               {/* Quote Button */}
-              <motion.button 
-                className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold flex items-center space-x-2 transition-all duration-200 hover:shadow-lg group"
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.2 }
-                }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <button className="bg-green-600 hover:bg-green-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold flex items-center space-x-2 transition-all duration-200 hover:shadow-lg group">
                 <FaWhatsapp className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
                 <span className="hidden sm:inline">COTIZAR</span>
-              </motion.button>
+              </button>
 
               {/* Mobile Menu Button */}
               <button 
@@ -102,7 +89,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
@@ -209,73 +196,30 @@ export default function Home() {
 
         <div className="relative z-10 flex items-center justify-center min-h-[80vh] px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white max-w-4xl mx-auto">
-            <motion.div 
-              className="mb-8"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <motion.h1 
-                className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
+            <div className="mb-8">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">
                 Somos especialistas en sistemas de
-              </motion.h1>
-              
-              <motion.h2 
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}
-              >
+              </h1>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
                 REFRIGERACIÓN
-              </motion.h2>
-              
-              <motion.h2 
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
+              </h2>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
                 AIRE ACONDICIONADO
-              </motion.h2>
-              
-              <motion.h3 
-                className="text-2xl sm:text-3xl lg:text-4xl font-bold text-yellow-400"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 1.0 }}
-              >
+              </h2>
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-yellow-400">
                 VENTA DE EQUIPOS
-              </motion.h3>
-            </motion.div>
+              </h3>
+            </div>
 
-            <motion.p 
-              className="text-sm sm:text-base lg:text-lg mb-8 max-w-3xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-            >
+            <p className="text-sm sm:text-base lg:text-lg mb-8 max-w-3xl mx-auto leading-relaxed">
               Ofrecemos soluciones a medida que garantizan confort, ahorro energético y alto rendimiento,
               con personal técnico calificado y atención personalizada en cada etapa del servicio.
-            </motion.p>
+            </p>
 
-            <motion.button 
-              className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base flex items-center space-x-2 mx-auto transition-all duration-200 hover:shadow-lg group"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.4 }}
-              whileHover={{ 
-                scale: 1.05,
-                transition: { duration: 0.2 }
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold text-sm sm:text-base flex items-center space-x-2 mx-auto transition-all duration-200 hover:shadow-lg group">
               <FaDownload className="w-6 h-6 group-hover:scale-110 transition-transform" />
               <span>DESCARGAR BROCHURE</span>
-            </motion.button>
+            </button>
           </div>
         </div>
       </section>
